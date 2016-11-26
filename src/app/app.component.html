@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="map">
+    <sp-map>
+      <sp-map-circle-marker *ngFor="let position of positions"
+          [latitude]="position.latitude" [longitude]="position.longitude" radius="5"> 
+          <sp-map-popup content="{{position.latitude}} {{position.longitude}}test"></sp-map-popup>
+      </sp-map-circle-marker>
+  </sp-map>
+  </div>
+
+  <div class="search">
+    <form novalidate [formGroup]="search" (submit)="searchByDates(search.value, search.valid, $event)">
+    <md-card>
+      <md-card-title>Find for date</md-card-title>
+      <md-card-content>
+          <md-input required formControlName="fromDate" placeholder="From date" 
+            [dividerColor]="showError('fromDate') ? 'accent' : ''">
+            <md-hint *ngIf="showError('fromDate')">Date is not valid</md-hint>
+          </md-input>
+          <md-input required formControlName="toDate" placeholder="To date"
+            [dividerColor]="showError('toDate') ? 'accent' : ''">
+            <md-hint *ngIf="showError('toDate')">Date is not valid (less then from date)</md-hint>
+          </md-input>
+      </md-card-content>
+      <md-card-actions>
+        <button md-button type="submit">Search</button>
+      </md-card-actions>
+    </md-card>
+    </form>
+  </div>
+</div>
+
+
+
+<!--<sp-map>-->
+  <!--<sp-map-polylne>-->
+    <!--<sp-map-polyline-point *ngFor="let position of positions"-->
+        <!--latitude="{{position.latitude}}" longitude="{{position.longitude}}"></sp-map-polyline-point>-->
+  <!--</sp-map-polylne>-->
+<!--</sp-map>-->
+
+<!--<sp-map>-->
+  <!--<sp-map-polylne>-->
+
+    <!--<sp-map-polyline-point latitude="40.850538" longitude="14.490489"></sp-map-polyline-point>-->
+    <!--<sp-map-polyline-point latitude="40.849174" longitude="14.488077"></sp-map-polyline-point>-->
+  <!--</sp-map-polylne>-->
+<!--</sp-map>-->
+
+
+<!--<maps></maps>-->
+
+
