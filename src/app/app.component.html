@@ -23,7 +23,7 @@
           </md-input>
       </md-card-content>
       <md-card-actions>
-        <button md-button type="submit">Search</button>
+        <button md-button type="submit" [disabled]="!form.valid">Search</button>
       </md-card-actions>
     </md-card>
     </form>
